@@ -17,7 +17,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.peluffo.inmobiliariapeluffo.databinding.ActivityMainBinding;
 import com.peluffo.inmobiliariapeluffo.modelo.Propietario;
-import com.peluffo.inmobiliariapeluffo.request.ApiClient;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,8 +71,6 @@ private ActivityMainBinding binding;
         ImageView avatar = header.findViewById(R.id.avatar);
         TextView nombreProp = header.findViewById(R.id.nombreProp);
         TextView mailProp = header.findViewById(R.id.mailProp);
-        //ApiClient api = ApiClient.getApi();
-        //Propietario p = api.obtenerUsuarioActual();
         Propietario p = (Propietario) getIntent().getBundleExtra("propietario").getSerializable("propietario");
         nombreProp.setText(p.getNombre()+ " " + p.getApellido());
         mailProp.setText(p.getEmail());
