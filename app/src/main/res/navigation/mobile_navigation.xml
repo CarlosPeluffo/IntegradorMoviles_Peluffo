@@ -19,7 +19,11 @@
         android:id="@+id/nav_inmueble"
         android:name="com.peluffo.inmobiliariapeluffo.ui.inmueble.InmuebleFragment"
         android:label="@string/inmuebles"
-        tools:layout="@layout/fragment_inmueble"/>
+        tools:layout="@layout/fragment_inmueble">
+        <action
+            android:id="@+id/action_nav_inmueble_to_inmuebleDetalleFragment"
+            app:destination="@id/inmuebleDetalleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_inquilino"
         android:name="com.peluffo.inmobiliariapeluffo.ui.inquilino.InquilinoFragment"
@@ -35,4 +39,12 @@
         android:name="com.peluffo.inmobiliariapeluffo.ui.logout.LogoutFragment"
         android:label="@string/logout"
         tools:layout="@layout/fragment_logout"/>
+    <fragment
+        android:id="@+id/inmuebleDetalleFragment"
+        android:name="com.peluffo.inmobiliariapeluffo.ui.inmueble.InmuebleDetalleFragment"
+        android:label="InmuebleDetalleFragment" >
+        <action
+            android:id="@+id/action_inmuebleDetalleFragment_to_nav_inmueble"
+            app:destination="@id/nav_inmueble" />
+    </fragment>
 </navigation>

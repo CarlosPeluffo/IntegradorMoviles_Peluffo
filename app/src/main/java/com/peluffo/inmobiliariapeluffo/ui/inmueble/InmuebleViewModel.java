@@ -4,15 +4,22 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.peluffo.inmobiliariapeluffo.modelo.Inmueble;
+import com.peluffo.inmobiliariapeluffo.request.ApiClient;
+
+import java.util.List;
+
 public class InmuebleViewModel extends ViewModel {
-    private MutableLiveData<String> mText;
+    private MutableLiveData<List<Inmueble>> lista;
 
-    public InmuebleViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is Inmueble fragment");
+    public LiveData<List<Inmueble>> getLista() {
+        if(lista == null){
+            lista = new MutableLiveData<>();
+        }
+        return lista;
     }
-
-    public LiveData<String> getmText() {
-        return mText;
+    public void cargarInmueble(){
+        ApiClient api = ApiClient.getApi();
+        lista.setValue(api.obtnerPropiedades());
     }
 }

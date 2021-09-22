@@ -75,7 +75,7 @@ public class PerfilFragment extends Fragment {
                 etContra.setText(propietario.getContraseña());
                 ivAvatar.setImageResource(propietario.getAvatar());
                 Log.d("salida", "onChanged: "+ propietario.getAvatar());
-                tvAvatar.setText(propietario.getAvatar());
+                tvAvatar.setText(propietario.getAvatar() + "");
             }
         });
         perfilViewModel.getTextB().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -116,8 +116,7 @@ public class PerfilFragment extends Fragment {
                             etEmail.getText().toString(),
                             etContra.getText().toString(),
                             etTelefono.getText().toString(),
-                            2131165333
-                            //Integer.parseInt( tvAvatar.getText().toString())
+                            Integer.parseInt( tvAvatar.getText().toString())
 
                     );
                     perfilViewModel.cambiarEstado(texto, p);

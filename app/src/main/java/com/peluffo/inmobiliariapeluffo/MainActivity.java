@@ -85,6 +85,6 @@ private ActivityMainBinding binding;
         super.onBackPressed();
         Log.d("salida", "pulso el back");
         //Cierra la aplicación completa D:
-        finishAffinity();
+        //finishAffinity();
     }
 }
