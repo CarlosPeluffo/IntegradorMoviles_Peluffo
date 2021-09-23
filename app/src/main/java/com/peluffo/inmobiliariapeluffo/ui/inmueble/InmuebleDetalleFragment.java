@@ -16,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.peluffo.inmobiliariapeluffo.databinding.FragmentInmuebleBinding;
 import com.peluffo.inmobiliariapeluffo.databinding.FragmentInmuebleDetalleBinding;
 import com.peluffo.inmobiliariapeluffo.modelo.Inmueble;
 

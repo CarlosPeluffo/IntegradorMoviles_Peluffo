@@ -28,7 +28,11 @@
         android:id="@+id/nav_inquilino"
         android:name="com.peluffo.inmobiliariapeluffo.ui.inquilino.InquilinoFragment"
         android:label="@string/inquilinos"
-        tools:layout="@layout/fragment_inquilino"/>
+        tools:layout="@layout/fragment_inquilino">
+        <action
+            android:id="@+id/action_nav_inquilino_to_inquilinoDetalleFragment"
+            app:destination="@id/inquilinoDetalleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_contrato"
         android:name="com.peluffo.inmobiliariapeluffo.ui.contrato.ContratoFragment"
@@ -42,9 +46,19 @@
     <fragment
         android:id="@+id/inmuebleDetalleFragment"
         android:name="com.peluffo.inmobiliariapeluffo.ui.inmueble.InmuebleDetalleFragment"
-        android:label="InmuebleDetalleFragment" >
+        android:label="Inmueble"
+        tools:layout="@layout/fragment_inmueble_detalle">
         <action
             android:id="@+id/action_inmuebleDetalleFragment_to_nav_inmueble"
             app:destination="@id/nav_inmueble" />
+    </fragment>
+    <fragment
+        android:id="@+id/inquilinoDetalleFragment"
+        android:name="com.peluffo.inmobiliariapeluffo.ui.inquilino.InquilinoDetalleFragment"
+        android:label="Inquilino"
+        tools:layout="@layout/fragment_inquilino_detalle" >
+        <action
+            android:id="@+id/action_inquilinoDetalleFragment_to_nav_inquilino"
+            app:destination="@id/nav_inquilino" />
     </fragment>
 </navigation>
