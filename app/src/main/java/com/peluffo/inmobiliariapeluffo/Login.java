@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.peluffo.inmobiliariapeluffo.modelo.Propietario;
@@ -18,6 +19,7 @@ public class Login extends AppCompatActivity {
     private Button btLogin;
     private TextView tvMensaje;
     private LoginViewModel loginViewModel;
+    private ImageView ivLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +34,12 @@ public class Login extends AppCompatActivity {
         });
     }
     private void iniciarVista(){
+        ivLogin = findViewById(R.id.ivLogin);
         btLogin = findViewById(R.id.btLogin);
         tvMensaje = findViewById(R.id.tvMensaje);
         mail = findViewById(R.id.etMail);
         contraseña = findViewById(R.id.etPassword);
+        ivLogin.setImageResource(R.drawable.logo);
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
