@@ -11,10 +11,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.peluffo.inmobiliariapeluffo.databinding.FragmentContratoBinding;
+import com.peluffo.inmobiliariapeluffo.modelo.Inmueble;
+
+import java.util.List;
 
 public class ContratoFragment extends Fragment {
+    private RecyclerView rvContrato;
+    private ContratoAdapter contratoAdapter;
     private ContratoViewModel contratoViewModel;
     private FragmentContratoBinding binding;
 
@@ -22,19 +30,19 @@ public class ContratoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         contratoViewModel = new ViewModelProvider(this).get(ContratoViewModel.class);
-
         binding = FragmentContratoBinding.inflate(inflater, container, false);
-
         View root = binding.getRoot();
-
-        final TextView textView = binding.textContrato;
-
-        contratoViewModel.getmText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        rvContrato = binding.rvContratos;
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, LinearLayoutManager.VERTICAL, false);
+        rvContrato.setLayoutManager(gridLayoutManager);
+        contratoViewModel.getLista().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
             @Override
-            public void onChanged(String s) {
-                textView.setText(s);
+            public void onChanged(List<Inmueble> inmuebles) {
+                contratoAdapter = new ContratoAdapter(inmuebles, root.getContext(), inflater);
+                rvContrato.setAdapter(contratoAdapter);
             }
         });
+        contratoViewModel.cargarInmueblesAlquilados();
         return root;
     }
 
