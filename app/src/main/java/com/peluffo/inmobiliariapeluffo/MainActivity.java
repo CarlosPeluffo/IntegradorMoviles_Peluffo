@@ -1,13 +1,11 @@
 package com.peluffo.inmobiliariapeluffo;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -31,13 +29,7 @@ private ActivityMainBinding binding;
      setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         iniciarHeader(navigationView);
@@ -77,11 +69,4 @@ private ActivityMainBinding binding;
         avatar.setImageResource(p.getAvatar());
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Log.d("salida", "pulso el back");
-        //Cierra la aplicación completa D:
-        //finishAffinity();
-    }
 }

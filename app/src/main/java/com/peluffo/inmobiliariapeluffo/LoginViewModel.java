@@ -21,19 +21,27 @@ import com.peluffo.inmobiliariapeluffo.request.ApiClient;
 
 public class LoginViewModel extends AndroidViewModel {
     private MutableLiveData<Integer> visibleM;
+    private MutableLiveData<Boolean> estadoM;
     private Context context;
+    private int activador = 0;
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
         this.context = application.getApplicationContext();
     }
 
-
     public LiveData<Integer> getVisibleM(){
         if(visibleM == null){
             visibleM = new MutableLiveData<>();
         }
         return visibleM;
+    }
+
+    public LiveData<Boolean> getEstadoM() {
+        if(estadoM == null){
+            estadoM = new MutableLiveData<>();
+        }
+        return estadoM;
     }
 
     public void iniciarSesion(String m, String c){
@@ -50,6 +58,15 @@ public class LoginViewModel extends AndroidViewModel {
 
         }else{
             visibleM.setValue(View.VISIBLE);
+        }
+    }
+    public void sensorG(float x){
+        if(x > 1 || x < -1){
+            activador++;
+        }
+        if(activador > 20){
+            activador = 0;
+            estadoM.setValue(true);
         }
     }
 }

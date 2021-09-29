@@ -2,8 +2,6 @@ package com.peluffo.inmobiliariapeluffo.ui.perfil;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +72,6 @@ public class PerfilFragment extends Fragment {
                 etEmail.setText(propietario.getEmail());
                 etContra.setText(propietario.getContraseña());
                 ivAvatar.setImageResource(propietario.getAvatar());
-                Log.d("salida", "onChanged: "+ propietario.getAvatar());
                 tvAvatar.setText(propietario.getAvatar() + "");
             }
         });
@@ -107,7 +104,6 @@ public class PerfilFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     String texto = ((Button)view).getText().toString();
-                    Log.d("salida)", "onClick: "+ tvAvatar.getText());
                     Propietario p = new Propietario(
                             Integer.parseInt(etCodigo.getText().toString()),
                             Long.parseLong(etDni.getText().toString()),

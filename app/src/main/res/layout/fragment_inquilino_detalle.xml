@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#85B7E8"
     tools:context=".ui.inquilino.InquilinoDetalleFragment" >
 
     <TextView
@@ -12,6 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Información del Inquilino"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +28,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="Código"
+        android:textColor="#4B0469"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -34,6 +41,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textColor="#7B1FA2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -44,6 +52,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="Nombre"
+        android:textColor="#4B0469"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCodigoInquilino" />
 
@@ -54,6 +65,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textColor="#7B1FA2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
@@ -64,6 +76,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="Apellido"
+        android:textColor="#4B0469"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNombreInquilino" />
 
@@ -74,6 +89,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textColor="#7B1FA2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
@@ -84,6 +100,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="D.N.I"
+        android:textColor="#4B0469"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvApellidoInquilino" />
 
@@ -94,6 +113,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textColor="#7B1FA2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
@@ -104,6 +124,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="E-mail"
+        android:textColor="#4B0469"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDniInquilino" />
 
@@ -114,6 +137,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textColor="#7B1FA2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
@@ -124,6 +148,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="Teléfono"
+        android:textColor="#4B0469"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvMailInquilino" />
 
@@ -134,6 +161,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textColor="#7B1FA2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
@@ -144,6 +172,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="Garante"
+        android:textColor="#4B0469"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTelInquilino" />
 
@@ -154,6 +185,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textColor="#7B1FA2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
@@ -164,6 +196,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="Teléfono Garante"
+        android:textColor="#4B0469"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvGaranteInquilino" />
 
@@ -174,6 +209,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textColor="#7B1FA2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 </androidx.constraintlayout.widget.ConstraintLayout>

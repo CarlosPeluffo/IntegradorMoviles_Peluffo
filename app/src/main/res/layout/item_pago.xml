@@ -19,8 +19,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:text="Código Pago:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,6 +34,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:text="Número de pago:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
@@ -41,6 +47,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:text="Código de Contrato:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
@@ -50,7 +59,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
-            android:text="Inmporte:"
+            android:text="Importe:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
@@ -61,6 +73,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:text="Fecha de Pago:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
@@ -69,8 +84,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             app:layout_constraintStart_toEndOf="@+id/textView29"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,6 +97,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             app:layout_constraintStart_toEndOf="@+id/textView32"
             app:layout_constraintTop_toBottomOf="@+id/tvCodigoPago" />
 
@@ -91,6 +108,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             app:layout_constraintStart_toEndOf="@+id/textView34"
             app:layout_constraintTop_toBottomOf="@+id/tvNroPago" />
 
@@ -101,6 +119,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             app:layout_constraintStart_toEndOf="@+id/textView36"
             app:layout_constraintTop_toBottomOf="@+id/tvCodigoCPago" />
 
@@ -111,6 +130,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             app:layout_constraintStart_toEndOf="@+id/textView37"
             app:layout_constraintTop_toBottomOf="@+id/tvImportePago" />
     </androidx.constraintlayout.widget.ConstraintLayout>

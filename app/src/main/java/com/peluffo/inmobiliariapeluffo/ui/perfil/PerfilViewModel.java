@@ -1,7 +1,5 @@
 package com.peluffo.inmobiliariapeluffo.ui.perfil;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -54,7 +52,6 @@ public class PerfilViewModel extends ViewModel {
         estadoM.setValue(true);
         textB.setValue("Guardar");
         }else {
-            Log.d("salida", "cambiarEstado: guardar");
             ApiClient api = ApiClient.getApi();
             api.actualizarPerfil(p);
             textB.setValue("Editar");

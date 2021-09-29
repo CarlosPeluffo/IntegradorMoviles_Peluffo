@@ -14,8 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.peluffo.inmobiliariapeluffo.R;
-import com.peluffo.inmobiliariapeluffo.databinding.FragmentInmuebleDetalleBinding;
 import com.peluffo.inmobiliariapeluffo.databinding.FragmentInquilinoDetalleBinding;
 import com.peluffo.inmobiliariapeluffo.modelo.Inquilino;
 
