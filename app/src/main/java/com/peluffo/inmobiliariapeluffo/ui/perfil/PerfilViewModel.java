@@ -54,6 +54,7 @@ public class PerfilViewModel extends ViewModel {
         }else {
             ApiClient api = ApiClient.getApi();
             api.actualizarPerfil(p);
+            estadoM.setValue(false);
             textB.setValue("Editar");
         }
     }
