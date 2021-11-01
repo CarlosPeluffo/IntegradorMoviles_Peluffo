@@ -5,37 +5,54 @@ import java.util.Objects;
 
 public class Inmueble implements Serializable {
 
-    private int idInmueble;
+    private int id;
     private String direccion;
     private String uso;
     private String tipo;
     private int ambientes;
     private double precio;
+    private boolean estado;
+    private String avatar;
+    private String avatarFile;
+    private int propietarioId;
     private Propietario propietario;
-    //En falso significa que el innmueble no está disponible por alguna falla en el mismo.
-    private boolean estado=true;
-    private String imagen;
 
-    public Inmueble(int idInmueble, String direccion, String uso, String tipo, int ambientes, double precio, Propietario propietario, boolean estado, String imagen) {
-        this.idInmueble = idInmueble;
+    public Inmueble() {
+    }
+
+    public Inmueble(int id, String direccion, String uso, String tipo, int ambientes, double precio, boolean estado, String avatar, String avatarFile, int propietarioId, Propietario propietario) {
+        this.id = id;
         this.direccion = direccion;
         this.uso = uso;
         this.tipo = tipo;
         this.ambientes = ambientes;
         this.precio = precio;
-        this.propietario = propietario;
         this.estado = estado;
-        this.imagen = imagen;
-    }
-    public Inmueble() {
-
-    }
-    public int getIdInmueble() {
-        return idInmueble;
+        this.avatar = avatar;
+        this.avatarFile = avatarFile;
+        this.propietarioId = propietarioId;
+        this.propietario = propietario;
     }
 
-    public void setIdInmueble(int idInmueble) {
-        this.idInmueble = idInmueble;
+    public Inmueble(String direccion, String uso, String tipo, int ambientes, double precio, boolean estado, String avatar, String avatarFile, int propietarioId, Propietario propietario) {
+        this.direccion = direccion;
+        this.uso = uso;
+        this.tipo = tipo;
+        this.ambientes = ambientes;
+        this.precio = precio;
+        this.estado = estado;
+        this.avatar = avatar;
+        this.avatarFile = avatarFile;
+        this.propietarioId = propietarioId;
+        this.propietario = propietario;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDireccion() {
@@ -78,14 +95,6 @@ public class Inmueble implements Serializable {
         this.precio = precio;
     }
 
-    public Propietario getPropietario() {
-        return propietario;
-    }
-
-    public void setPropietario(Propietario propietario) {
-        this.propietario = propietario;
-    }
-
     public boolean isEstado() {
         return estado;
     }
@@ -94,24 +103,40 @@ public class Inmueble implements Serializable {
         this.estado = estado;
     }
 
-    public String getImagen() {
-        return imagen;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Inmueble inmueble = (Inmueble) o;
-        return idInmueble == inmueble.idInmueble;
+    public String getAvatarFile() {
+        return avatarFile;
+    }
+
+    public void setAvatarFile(String avatarFile) {
+        this.avatarFile = avatarFile;
+    }
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
+    }
+
+    public int getPropietarioId() {
+        return propietarioId;
+    }
+
+    public void setPropietarioId(int propietarioId) {
+        this.propietarioId = propietarioId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idInmueble);
+        return Objects.hash(id);
     }
 }

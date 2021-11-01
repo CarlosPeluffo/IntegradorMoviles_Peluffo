@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_inmuebles"
             android:title="@string/inmuebles"/>
         <item
+            android:id="@+id/nav_crearInmueble"
+            android:icon="@drawable/ic_inmuebles"
+            android:title="Crear Inmueble"/>
+        <item
             android:id="@+id/nav_inquilino"
             android:icon="@drawable/ic_inquilino"
             android:title="@string/inquilinos"/>

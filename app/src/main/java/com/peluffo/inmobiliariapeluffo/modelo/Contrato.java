@@ -1,33 +1,77 @@
 package com.peluffo.inmobiliariapeluffo.modelo;
 
+import android.util.Log;
+
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Objects;
+
 
 public class Contrato implements Serializable {
 
-    private int idContrato;
+    private int id;
     private String fechaInicio;
     private String fechaFin;
-    private double montoAlquiler;
+    private double monto;
+    private boolean cancelado;
+    private String fechaCancelado;
     private Inquilino inquilino;
     private Inmueble inmueble;
 
-    public Contrato() {}
-    public Contrato(int idContrato, String fechaInicio, String fechaFin, double montoAlquiler, Inquilino inquilino, Inmueble inmueble) {
-        this.idContrato = idContrato;
+    public Contrato(int id, String fechaInicio, String fechaFin, double monto, boolean cancelado, String fechaCancelado, Inquilino inquilino, Inmueble inmueble) {
+        this.id = id;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.montoAlquiler = montoAlquiler;
+        this.monto = monto;
+        this.cancelado = cancelado;
+        this.fechaCancelado = fechaCancelado;
         this.inquilino = inquilino;
         this.inmueble = inmueble;
     }
 
-    public int getIdContrato() {
-        return idContrato;
+    public int getId() {
+        return id;
     }
 
-    public void setIdContrato(int idContrato) {
-        this.idContrato = idContrato;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
+
+    public boolean isCancelado() {
+        return cancelado;
+    }
+
+    public void setCancelado(boolean cancelado) {
+        this.cancelado = cancelado;
+    }
+
+    public Inquilino getInquilino() {
+        return inquilino;
+    }
+
+    public void setInquilino(Inquilino inquilino) {
+        this.inquilino = inquilino;
+    }
+
+    public Inmueble getInmueble() {
+        return inmueble;
+    }
+
+    public void setInmueble(Inmueble inmueble) {
+        this.inmueble = inmueble;
     }
 
     public String getFechaInicio() {
@@ -46,41 +90,16 @@ public class Contrato implements Serializable {
         this.fechaFin = fechaFin;
     }
 
-    public double getMontoAlquiler() {
-        return montoAlquiler;
+    public String getFechaCancelado() {
+        return fechaCancelado;
     }
 
-    public void setMontoAlquiler(double montoAlquiler) {
-        this.montoAlquiler = montoAlquiler;
-    }
-
-
-    public Inquilino getInquilino() {
-        return inquilino;
-    }
-
-    public void setInquilino(Inquilino inquilino) {
-        this.inquilino = inquilino;
-    }
-
-    public Inmueble getInmueble() {
-        return inmueble;
-    }
-
-    public void setInmueble(Inmueble inmueble) {
-        this.inmueble = inmueble;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Contrato contrato = (Contrato) o;
-        return idContrato == contrato.idContrato;
+    public void setFechaCancelado(String fechaCancelado) {
+        this.fechaCancelado = fechaCancelado;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idContrato);
+        return Objects.hash(id);
     }
 }

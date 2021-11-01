@@ -15,18 +15,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.peluffo.inmobiliariapeluffo.R;
+import com.peluffo.inmobiliariapeluffo.modelo.Contrato;
 import com.peluffo.inmobiliariapeluffo.modelo.Inmueble;
 import com.peluffo.inmobiliariapeluffo.modelo.Inquilino;
-import com.peluffo.inmobiliariapeluffo.request.ApiClient;
 
 import java.util.List;
 
 public class InquilinoAdapter extends RecyclerView.Adapter<InquilinoAdapter.ViewHolder>{
-    private List<Inmueble> lista ;
+    private List<Contrato> lista ;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public InquilinoAdapter(List<Inmueble> lista, Context context, LayoutInflater layoutInflater) {
+    public InquilinoAdapter(List<Contrato> lista, Context context, LayoutInflater layoutInflater) {
         this.lista = lista;
         this.context = context;
         this.layoutInflater = layoutInflater;
@@ -40,14 +40,14 @@ public class InquilinoAdapter extends RecyclerView.Adapter<InquilinoAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull InquilinoAdapter.ViewHolder holder, int position) {
-        ApiClient api = ApiClient.getApi();
-        Inmueble inmueble = lista.get(position);
-        Inquilino inquilino = api.obtenerInquilino(inmueble);
-        holder.tvPrecioInquilino.setText(String.valueOf(lista.get(position).getPrecio()));
-        holder.tvDireccionInquilino.setText(lista.get(position).getDireccion());
+    public void onBindViewHolder(@NonNull InquilinoAdapter.ViewHolder holder, int position) { ;
+        Contrato contrato = lista.get(position);
+        Inmueble inmueble = contrato.getInmueble();
+        Inquilino inquilino = contrato.getInquilino();
+        holder.tvPrecioInquilino.setText(String.valueOf(inmueble.getPrecio()));
+        holder.tvDireccionInquilino.setText(inmueble.getDireccion());
         Glide.with(context)
-                .load(lista.get(position).getImagen())
+                .load("http://192.168.1.105:5001"+inmueble.getAvatar())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.ivInmuebleInquilino);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

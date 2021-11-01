@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.peluffo.inmobiliariapeluffo.R;
+import com.peluffo.inmobiliariapeluffo.modelo.Convertfechas;
 import com.peluffo.inmobiliariapeluffo.modelo.Pago;
 
 import java.util.List;
@@ -34,11 +35,12 @@ public class PagoAdapter extends RecyclerView.Adapter<PagoAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull PagoAdapter.ViewHolder holder, int position) {
-        holder.tvCodigoP.setText(String.valueOf(lista.get(position).getIdPago()));
-        holder.tvNroPago.setText(String.valueOf(lista.get(position).getNumero()));
-        holder.tvCodigoCP.setText(String.valueOf(lista.get(position).getContrato().getIdContrato()));
-        holder.tvImportP.setText(String.valueOf(lista.get(position).getImporte()));
-        holder.tvfechaP.setText(lista.get(position).getFechaDePago());
+        Convertfechas convert = new Convertfechas();
+        holder.tvCodigoP.setText(String.valueOf(lista.get(position).getId()));
+        holder.tvNroPago.setText(String.valueOf(lista.get(position).getNroPago()));
+        holder.tvCodigoCP.setText(String.valueOf(lista.get(position).getContrato().getId()));
+        holder.tvImportP.setText(String.valueOf(lista.get(position).getMonto()));
+        holder.tvfechaP.setText(convert.convertFecha(lista.get(position).getFechaPago()+""));
     }
 
     @Override

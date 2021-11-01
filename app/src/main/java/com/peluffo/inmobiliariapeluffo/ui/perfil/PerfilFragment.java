@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.peluffo.inmobiliariapeluffo.databinding.FragmentPerfilBinding;
 import com.peluffo.inmobiliariapeluffo.modelo.Propietario;
 
@@ -52,12 +54,9 @@ public class PerfilFragment extends Fragment {
         perfilViewModel.getEstadoM().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                etDni.setEnabled(aBoolean);
                 etNombre.setEnabled(aBoolean);
                 etApellido.setEnabled(aBoolean);
                 etTelefono.setEnabled(aBoolean);
-                etEmail.setEnabled(aBoolean);
-                etContra.setEnabled(aBoolean);
             }
         });
         perfilViewModel.getPropietarioM().observe(getViewLifecycleOwner(), new Observer<Propietario>() {
@@ -65,13 +64,16 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onChanged(Propietario propietario) {
                 etCodigo.setText(String.format(String.valueOf(propietario.getId())));
-                etDni.setText(propietario.getDni().toString());
+                etDni.setText(propietario.getDni());
                 etNombre.setText(propietario.getNombre());
                 etApellido.setText(propietario.getApellido());
                 etTelefono.setText(propietario.getTelefono());
-                etEmail.setText(propietario.getEmail());
-                etContra.setText(propietario.getContraseña());
-                ivAvatar.setImageResource(propietario.getAvatar());
+                etEmail.setText(propietario.getMail());
+                etContra.setText(propietario.getClave());
+                Glide.with(root.getContext())
+                        .load("http://192.168.1.105:5001"+propietario.getAvatar())
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(ivAvatar);
                 tvAvatar.setText(propietario.getAvatar() + "");
             }
         });
@@ -106,13 +108,14 @@ public class PerfilFragment extends Fragment {
                     String texto = ((Button)view).getText().toString();
                     Propietario p = new Propietario(
                             Integer.parseInt(etCodigo.getText().toString()),
-                            Long.parseLong(etDni.getText().toString()),
-                            etNombre.getText().toString(),
                             etApellido.getText().toString(),
+                            etNombre.getText().toString(),
+                            etDni.getText().toString(),
                             etEmail.getText().toString(),
-                            etContra.getText().toString(),
                             etTelefono.getText().toString(),
-                            Integer.parseInt( tvAvatar.getText().toString())
+                            etContra.getText().toString(),
+                            //Integer.parseInt( tvAvatar.getText().toString())
+                            tvAvatar.getText().toString()
 
                     );
                     perfilViewModel.cambiarEstado(texto, p);

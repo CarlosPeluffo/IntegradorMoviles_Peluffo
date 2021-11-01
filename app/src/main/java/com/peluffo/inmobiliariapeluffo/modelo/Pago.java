@@ -1,39 +1,56 @@
 package com.peluffo.inmobiliariapeluffo.modelo;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Pago implements Serializable {
 
-    private int idPago;
-    private int numero;
+    private int id;
+    private int nroPago;
+    private String fechaPago;
+    private double monto;
     private Contrato contrato;
-    private double importe;
-    private String fechaDePago;
 
     public Pago() {}
 
-    public Pago(int idPago, int numero, Contrato contrato, double importe, String fechaDePago) {
-        this.idPago = idPago;
-        this.numero = numero;
+    public Pago(int id, int nroPago, String fechaPago, double monto, Contrato contrato) {
+        this.id = id;
+        this.nroPago = nroPago;
+        this.fechaPago = fechaPago;
+        this.monto = monto;
         this.contrato = contrato;
-        this.importe = importe;
-        this.fechaDePago = fechaDePago;
     }
 
-    public int getIdPago() {
-        return idPago;
+    public int getId() {
+        return id;
     }
 
-    public void setIdPago(int idPago) {
-        this.idPago = idPago;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getNroPago() {
+        return nroPago;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNroPago(int nroPago) {
+        this.nroPago = nroPago;
+    }
+
+    public String getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(String fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
     }
 
     public Contrato getContrato() {
@@ -42,21 +59,5 @@ public class Pago implements Serializable {
 
     public void setContrato(Contrato contrato) {
         this.contrato = contrato;
-    }
-
-    public double getImporte() {
-        return importe;
-    }
-
-    public void setImporte(double importe) {
-        this.importe = importe;
-    }
-
-    public String getFechaDePago() {
-        return fechaDePago;
-    }
-
-    public void setFechaDePago(String fechaDePago) {
-        this.fechaDePago = fechaDePago;
     }
 }

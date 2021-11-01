@@ -1,12 +1,18 @@
 package com.peluffo.inmobiliariapeluffo;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -19,14 +25,15 @@ import com.peluffo.inmobiliariapeluffo.modelo.Propietario;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-private ActivityMainBinding binding;
+    private ActivityMainBinding binding;
+    private MainViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
      binding = ActivityMainBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
+     viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(MainViewModel.class);
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
@@ -36,7 +43,7 @@ private ActivityMainBinding binding;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_perfil, R.id.nav_inmueble, R.id.nav_inquilino,
+                R.id.nav_home, R.id.nav_perfil, R.id.nav_inmueble, R.id.nav_crearInmueble, R.id.nav_inquilino,
                 R.id.nav_contrato, R.id.nav_logout)
                 .setOpenableLayout(drawer)
                 .build();
@@ -63,10 +70,18 @@ private ActivityMainBinding binding;
         ImageView avatar = header.findViewById(R.id.avatar);
         TextView nombreProp = header.findViewById(R.id.nombreProp);
         TextView mailProp = header.findViewById(R.id.mailProp);
-        Propietario p = (Propietario) getIntent().getBundleExtra("propietario").getSerializable("propietario");
-        nombreProp.setText(p.getNombre()+ " " + p.getApellido());
-        mailProp.setText(p.getEmail());
-        avatar.setImageResource(p.getAvatar());
+        viewModel.getPropM().observe(this, new Observer<Propietario>() {
+            @Override
+            public void onChanged(Propietario propietario) {
+                nombreProp.setText(propietario.getNombre()+ " " + propietario.getApellido());
+                mailProp.setText(propietario.getMail());
+                Glide.with(navigationView.getContext())
+                        .load("http:/192.168.1.104:5001"+propietario.getAvatar())
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(avatar);
+            }
+        });
+        viewModel.cargarProp();
     }
 
 }

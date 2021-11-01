@@ -86,4 +86,13 @@
             android:id="@+id/action_pagoFragment_to_contratoDetalleFragment"
             app:destination="@id/contratoDetalleFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_crearInmueble"
+        android:name="com.peluffo.inmobiliariapeluffo.ui.inmueble.InmuebleCrearFragment"
+        android:label="Crear Inmueble"
+        tools:layout="@layout/fragment_inmueble_crear" >
+        <action
+            android:id="@+id/action_nav_crearInmueble_to_inmuebleDetalleFragment2"
+            app:destination="@id/inmuebleDetalleFragment" />
+    </fragment>
 </navigation>

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.peluffo.inmobiliariapeluffo.databinding.FragmentContratoBinding;
+import com.peluffo.inmobiliariapeluffo.modelo.Contrato;
 import com.peluffo.inmobiliariapeluffo.modelo.Inmueble;
 
 import java.util.List;
@@ -34,10 +35,10 @@ public class ContratoFragment extends Fragment {
         rvContrato = binding.rvContratos;
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, LinearLayoutManager.VERTICAL, false);
         rvContrato.setLayoutManager(gridLayoutManager);
-        contratoViewModel.getLista().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
+        contratoViewModel.getLista().observe(getViewLifecycleOwner(), new Observer<List<Contrato>>() {
             @Override
-            public void onChanged(List<Inmueble> inmuebles) {
-                contratoAdapter = new ContratoAdapter(inmuebles, root.getContext(), inflater);
+            public void onChanged(List<Contrato> contratos) {
+                contratoAdapter = new ContratoAdapter(contratos, root.getContext(), inflater);
                 rvContrato.setAdapter(contratoAdapter);
             }
         });

@@ -40,7 +40,7 @@ public class InmuebleDetalleFragment extends Fragment {
         inmuebleDetalleViewModel.getInmuebleM().observe(getViewLifecycleOwner(), new Observer<Inmueble>() {
             @Override
             public void onChanged(Inmueble inmueble) {
-                tvCodigo.setText(inmueble.getIdInmueble() + "");
+                tvCodigo.setText(inmueble.getId() + "");
                 tvAmbientes.setText(inmueble.getAmbientes() + "");
                 tvDireccion.setText(inmueble.getDireccion());
                 tvPrecio.setText(String.valueOf(inmueble.getPrecio()));
@@ -48,13 +48,13 @@ public class InmuebleDetalleFragment extends Fragment {
                 tvTipo.setText(inmueble.getTipo());
                 cbEstado.setChecked(inmueble.isEstado());
                 Glide.with(getContext())
-                        .load(inmueble.getImagen())
+                        .load("http://192.168.1.105:5001"+inmueble.getAvatar())
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .into(imageInmueble);
                 cbEstado.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        inmuebleDetalleViewModel.guardarEstado(cbEstado.isChecked());
+                        inmuebleDetalleViewModel.guardarEstado(inmueble.getId());
                     }
                 });
             }

@@ -6,24 +6,26 @@ import java.util.Objects;
 public class Propietario implements Serializable {
 
     private int id;
-    private Long dni;
-    private String nombre;
     private String apellido;
-    private String email;
-    private String contraseña;
+    private String nombre;
+    private String dni;
+    private String mail;
     private String telefono;
-    private int avatar;
+    private String clave;
+    private String avatar;
+    private String avatarFile = null;
 
     public Propietario(){}
-    public Propietario(int id, Long dni, String nombre, String apellido, String email, String contraseña, String telefono, int avatar) {
+
+    public Propietario(int id, String apellido, String nombre, String dni, String mail, String telefono, String clave, String avatar) {
         this.id = id;
-        this.dni = dni;
-        this.nombre = nombre;
         this.apellido = apellido;
-        this.email = email;
-        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.dni = dni;
+        this.mail = mail;
         this.telefono = telefono;
-        this.avatar=avatar;
+        this.clave = clave;
+        this.avatar = avatar;
     }
 
     public int getId() {
@@ -34,12 +36,12 @@ public class Propietario implements Serializable {
         this.id = id;
     }
 
-    public Long getDni() {
-        return dni;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setDni(Long dni) {
-        this.dni = dni;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getNombre() {
@@ -50,28 +52,20 @@ public class Propietario implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getDni() {
+        return dni;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
-    public String getEmail() {
-        return email;
+    public String getMail() {
+        return mail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getTelefono() {
@@ -82,13 +76,24 @@ public class Propietario implements Serializable {
         this.telefono = telefono;
     }
 
-    public int getAvatar() {
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(int avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+    public String getAvatarFile(){return avatarFile;}
+
 
     @Override
     public boolean equals(Object o) {

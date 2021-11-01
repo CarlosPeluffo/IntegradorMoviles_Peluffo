@@ -17,16 +17,15 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.peluffo.inmobiliariapeluffo.R;
 import com.peluffo.inmobiliariapeluffo.modelo.Contrato;
 import com.peluffo.inmobiliariapeluffo.modelo.Inmueble;
-import com.peluffo.inmobiliariapeluffo.request.ApiClient;
 
 import java.util.List;
 
 public class ContratoAdapter extends RecyclerView.Adapter<ContratoAdapter.ViewHolder> {
-    private List<Inmueble> lista;
+    private List<Contrato> lista;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public ContratoAdapter(List<Inmueble> lista, Context context, LayoutInflater layoutInflater) {
+    public ContratoAdapter(List<Contrato> lista, Context context, LayoutInflater layoutInflater) {
         this.lista = lista;
         this.context = context;
         this.layoutInflater = layoutInflater;
@@ -41,13 +40,12 @@ public class ContratoAdapter extends RecyclerView.Adapter<ContratoAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ContratoAdapter.ViewHolder holder, int position) {
-        ApiClient api = ApiClient.getApi();
-        Inmueble inmueble = lista.get(position);
-        Contrato contrato = api.obtenerContratoVigente(inmueble);
-        holder.tvPrecioC.setText(String.valueOf(lista.get(position).getPrecio()));
-        holder.tvDireccionC.setText(lista.get(position).getDireccion());
+        Contrato contrato = lista.get(position);
+        Inmueble inmueble = contrato.getInmueble();
+        holder.tvPrecioC.setText(String.valueOf(inmueble.getPrecio()));
+        holder.tvDireccionC.setText(inmueble.getDireccion());
         Glide.with(context)
-                .load(lista.get(position).getImagen())
+                .load("http://192.168.1.105:5001"+inmueble.getAvatar())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.ivInmuebleC);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

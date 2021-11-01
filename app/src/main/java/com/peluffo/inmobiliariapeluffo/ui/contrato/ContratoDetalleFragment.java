@@ -19,13 +19,16 @@ import android.widget.TextView;
 import com.peluffo.inmobiliariapeluffo.R;
 import com.peluffo.inmobiliariapeluffo.databinding.FragmentContratoDetalleBinding;
 import com.peluffo.inmobiliariapeluffo.modelo.Contrato;
+import com.peluffo.inmobiliariapeluffo.modelo.Convertfechas;
 
 public class ContratoDetalleFragment extends Fragment {
     private ContratoDetalleViewModel contratoDetalleViewModel;
     private FragmentContratoDetalleBinding binding;
+    private Convertfechas convert;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
+        convert = new Convertfechas();
         contratoDetalleViewModel = new ViewModelProvider(this).get(ContratoDetalleViewModel.class);
         binding = FragmentContratoDetalleBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -39,12 +42,12 @@ public class ContratoDetalleFragment extends Fragment {
         contratoDetalleViewModel.getContratoM().observe(getViewLifecycleOwner(), new Observer<Contrato>() {
             @Override
             public void onChanged(Contrato contrato) {
-                tvCodigoContrato.setText(contrato.getIdContrato() + "");
-                tvInicioContrato.setText(contrato.getFechaInicio());
-                tvFinCOntrato.setText(contrato.getFechaFin());
-                tvMontoContrato.setText("$ " + contrato.getMontoAlquiler());
-                tvInquilinoContrato.setText(contrato.getInquilino().getNombreGarante()+" "+ contrato.getInquilino().getApellido());
-                tvInmuebleContrato.setText("Inmueble en" + contrato.getInmueble().getDireccion());
+                tvCodigoContrato.setText(contrato.getId() + "");
+                tvInicioContrato.setText(convert.convertFecha(contrato.getFechaInicio()+""));
+                tvFinCOntrato.setText(convert.convertFecha(contrato.getFechaFin() +""));
+                tvMontoContrato.setText("$ " + contrato.getMonto());
+                tvInquilinoContrato.setText(contrato.getInquilino().getNombre()+" "+ contrato.getInquilino().getApellido());
+                tvInmuebleContrato.setText("Inmueble en " + contrato.getInmueble().getDireccion());
                 btPagos.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

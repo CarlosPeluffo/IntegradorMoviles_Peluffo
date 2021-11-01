@@ -43,7 +43,7 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.ViewHo
         holder.tvPrecio.setText(String.valueOf(lista.get(position).getPrecio()));
         holder.tvDireccion.setText(lista.get(position).getDireccion());
         Glide.with(context)
-                .load(lista.get(position).getImagen())
+                .load("http://192.168.1.105:5001"+lista.get(position).getAvatar())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.ivInmueble);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
